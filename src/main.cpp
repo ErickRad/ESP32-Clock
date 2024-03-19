@@ -10,6 +10,7 @@ const char* password = "YOUR_WIFI_PASSWORD";
 const char* api = "YOUR_API_KEY";
 const char* city = "YOUR_CITY";
 const char* ntpServer = "YOUR_NTP_SERVER";
+const String url = (String) "http://api.openweathermap.org/data/2.5/weather?q="+city+",IT&appid="+api+"&units=metric";
 const long  gmtOffset_sec = -3 * 3600;
 const unsigned int daylightOffset_sec = 0;
 
@@ -22,6 +23,7 @@ int lastHour = -1;
 
 WiFiUDP ntpUDP;
 NTPClient client(ntpUDP, ntpServer, gmtOffset_sec, daylightOffset_sec);
+HTTPClient http;
 LiquidCrystal_I2C LCD(0x3F, 16, 2);
 
 byte grau[] = {
@@ -36,9 +38,6 @@ byte grau[] = {
 };
 
 float obterTemperatura() {
-  HTTPClient http;
-
-  String url = (String) "http://api.openweathermap.org/data/2.5/weather?q="+city+",IT&appid="+api+"&units=metric";
   http.begin(url);
 
   int httpCode = http.GET();
