@@ -38,6 +38,9 @@ byte grau[] = {
 };
 
 float obterTemperatura() {
+  HTTPClient http;
+
+  String url = (String) "http://api.openweathermap.org/data/2.5/weather?q="+city+",IT&appid="+api+"&units=metric";
   http.begin(url);
 
   int httpCode = http.GET();
