@@ -44,19 +44,16 @@ float obterTemperatura() {
   if (httpCode == HTTP_CODE_OK) {
   
     String payload = http.getString();
-
     int startIndex = payload.indexOf("\"temp\":") + 7;
     int endIndex = payload.indexOf(",", startIndex);
-
     String temperaturaStr = payload.substring(startIndex, endIndex);
     float temperatura = temperaturaStr.toFloat();
     
     return temperatura;
 
   } else {
-    return 28.3;
+    return __EXCEPTION__;
   }
-  
   http.end();
 }
 
