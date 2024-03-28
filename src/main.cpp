@@ -5,10 +5,10 @@
 #include <HTTPClient.h>
 #include <WiFiUdp.h>
 
-const char* ssid = "Radmann WIFI";
-const char* password = "751234679";
-const char* api = "53998327b9605d9385f4556b6f5d8eff";
-const char* city = "São Lourenço do Sul,br";
+const char* ssid = "YOUR_WIFI_NAME";
+const char* password = "YOUR_PASSWORD";
+const char* api = "YOUR_API_KEY";
+const char* city = "TOUR_CITY";
 const char* ntpServer = "a.ntp.br";
 const String url = (String) "http://api.openweathermap.org/data/2.5/weather?q="+city+",IT&appid="+api+"&units=metric";
 const long  gmtOffset_sec = -3 * 3600;
