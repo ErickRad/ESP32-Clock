@@ -271,8 +271,8 @@ void LiquidCrystal_I2C::expanderWrite(uint8_t _data){
 }
 
 void LiquidCrystal_I2C::pulseEnable(uint8_t _data){
-	expanderWrite(_data | En);	// En high
-	delayMicroseconds(1);		// enable pulse must be >450ns
+	expanderWrite(_data | En);
+	delayMicroseconds(1);
 	
 	expanderWrite(_data & ~En);	// En low
 	delayMicroseconds(50);		// commands need > 37us to settle
